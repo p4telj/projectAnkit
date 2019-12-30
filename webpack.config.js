@@ -1,0 +1,1 @@
+module.exports = {  entry: './jsx/index.jsx',  output: {    path: __dirname + '/js',    publicPath: '/js',    filename: 'index.js'  },  devServer: {    contentBase: '/',  },  module: {    rules: [    {      test: /\.(js|jsx)$/,      exclude: /node_modules/,      use: ['babel-loader']    }    ]  },};
