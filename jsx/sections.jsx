@@ -13,10 +13,11 @@ import React from 'react';
  */
 function HeaderBar(props) {
     return (
-        <div id={props.id} className="header-btn" style={{background: "rgba(255,255,255," + props.opacity + ")"}}>
-            {props.text && <h2 className="header-btn-font">{props.text}</h2>}
-            <div className="header-btn-bar"></div>
-            {props.text && <div className="header-btn-bar-end"></div>}
+        <div id={props.containerId} className="header-btn">
+            {props.text && <h2 id={props.containerId + "-font"} className="header-btn-font">{props.text}</h2>}
+            <div id={props.containerId + "-bar"} className="header-btn-bar">
+                {props.text && <div className="header-btn-bar-end"></div>}
+            </div>
         </div>
     );
 }
@@ -32,21 +33,21 @@ export class Header extends React.Component {
             <header id="header">
                 <div id="header-wrapper">
                     <div id="header-mobile"></div>
-                    <img className="header-img" src="../images/header-desktop.png"></img>
-                    <h1 className="header-name">ankit patel</h1>
+                    <img id="header-img" src="../images/header-desktop.png"></img>
+                    <h1 id="header-name">ankit patel</h1>
                     <div id="header-btn-down">
                         <div id="header-btn-down-img"></div>
                     </div>
-                    <HeaderBar id="header-about" text="about me" />
-                    <HeaderBar id="header-resume" text="my resumé" />
-                    <HeaderBar id="header-portfolio" text="my portfolio" />
-                    <HeaderBar id="header-empty-1" opacity="0.27" />
-                    <HeaderBar id="header-empty-2" opacity="0.23" />
-                    <HeaderBar id="header-empty-3" opacity="0.19" />
-                    <HeaderBar id="header-empty-4" opacity="0.15" />
-                    <HeaderBar id="header-empty-5" opacity="0.13" />
-                    <HeaderBar id="header-empty-6" opacity="0.11" />
-                    <HeaderBar id="header-empty-7" opacity="0.1" />
+                    <HeaderBar containerId="header-about" text="about me" />
+                    <HeaderBar containerId="header-resume" text="my resumé" />
+                    <HeaderBar containerId="header-portfolio" text="my portfolio" />
+                    <HeaderBar containerId="header-empty-1" />
+                    <HeaderBar containerId="header-empty-2" />
+                    <HeaderBar containerId="header-empty-3" />
+                    <HeaderBar containerId="header-empty-4" />
+                    <HeaderBar containerId="header-empty-5" />
+                    <HeaderBar containerId="header-empty-6" />
+                    <HeaderBar containerId="header-empty-7" />
                 </div>
             </header>
         );
