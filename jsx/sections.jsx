@@ -14,7 +14,7 @@ import React from 'react';
 function HeaderBar(props) {
     return (
         <div id={props.containerId} className="header-btn">
-            {props.text && <h2 id={props.containerId + "-font"} className="header-btn-font">{props.text}</h2>}
+            {props.text && <h2 id={props.containerId + "-font"} className="header-btn-font">{props.text}</h2>}  
             <div id={props.containerId + "-bar"} className="header-btn-bar">
                 {props.text && <div className="header-btn-bar-end"></div>}
             </div>
@@ -23,20 +23,39 @@ function HeaderBar(props) {
 }
 
 export class Header extends React.Component {
+
     constructor(props) {
         super(props);
     }
 
+    resizeHeader() {
+        let viewportHeight = window.innerHeight;
+        let imageHeight = document.getElementById("header-img").height;
+        document.getElementById("header").style.height = viewportHeight < imageHeight ? viewportHeight + "px" : imageHeight + "px";
+    }
+    
+    componentDidMount() {
+        var callback = this.resizeHeader;
+
+        window.addEventListener('load', function load() {
+            callback();
+            window.removeEventListener('load', load);
+        });
+
+        window.addEventListener('resize', callback);
+    }
+
     render() {
-        
         return (
             <header id="header">
                 <div id="header-wrapper">
                     <div id="header-mobile"></div>
                     <img id="header-img" src="../images/header-desktop.png"></img>
-                    <h1 id="header-name">ankit patel</h1>
-                    <div id="header-btn-down">
-                        <div id="header-btn-down-img"></div>
+                    <div id="header-main">
+                        <h1 id="header-name">ankit patel</h1>
+                        <div id="header-btn-down">
+                            <div id="header-btn-down-img"></div>
+                        </div>
                     </div>
                     <HeaderBar containerId="header-about" text="about me" />
                     <HeaderBar containerId="header-resume" text="my resumé" />
@@ -57,16 +76,18 @@ export class Header extends React.Component {
 /** 
  * About Section 
  */
-export class About extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div></div>
-        );
-    }
+export function About(props) {
+    return (
+        <section id="about-section container-fluid">
+            <h1 className="section-title">about me</h1>
+            <div className="section-title-bar"></div>
+            <div className="section-content row">
+                <div className="col-sm-12">
+                    <p>Hi, my name is ankit patel but some people call me anskeet.</p>
+                </div>
+            </div>
+        </section>
+    );
 }
 
 /** 
