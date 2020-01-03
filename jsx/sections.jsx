@@ -91,6 +91,7 @@ export function About(props) {
             <div className="section-content row">
                 <div className="col-sm-12">
                     <p>tbd</p>
+                    <p>Feel free to contact me at...</p>
                 </div>
             </div>
         </section>
@@ -341,14 +342,33 @@ export function Portfolio(props) {
 /** 
  * Footer Section 
  */
-export class Footer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div></div>
-        );
-    }
+export function Footer(props) {
+    return (
+        <footer id="footer" className="container-fluid">
+            <div className="footer-content row">
+                <div className="col-sm-12 col-md-6 contact">
+                    {/* Name & Contact Info */}
+                    <div className="contact-group-header">
+                        <h1>ankit patel</h1>
+                    </div>
+                    <p>
+                        phone: <a href="tel:1-734-845-8662"><b>734-845-8662</b></a><br/>
+                        email: <a href="mailto:ankitpat@umich.edu"><b>ankitpat@umich.edu</b></a>
+                    </p>
+                </div>
+                <div className="col-sm-12 col-md-6 navigation">
+                    {/* Navigation links to above */}
+                    <AnchorLink href="#about-section">
+                        <h2>about me</h2>
+                    </AnchorLink>
+                    <AnchorLink href="#resume-section">
+                        <h2>my resumé</h2>
+                    </AnchorLink>
+                    <AnchorLink href="#portfolio-section">
+                        <h2>my portfolio</h2>
+                    </AnchorLink>
+                </div>
+            </div>
+        </footer>
+    );
 }
