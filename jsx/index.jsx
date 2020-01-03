@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import { Header, About, Resume, Portfolio, Footer } from './sections.jsx';
 
@@ -97,9 +98,22 @@ class NavBar extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', () =>{
+            if (window.scrollY > document.getElementById("header-img").height) {
+                document.getElementById("navbar").style.opacity = "1";
+            }
+            else {
+                document.getElementById("navbar").style.opacity = "0";
+            }
+        });
+    }
+
     render() {
         return (
-            <div></div>
+            <div id="navbar">
+                
+            </div>
         );
     }
 }

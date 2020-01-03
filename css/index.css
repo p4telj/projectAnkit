@@ -38,6 +38,17 @@ p {
     from { margin-right: -20vw; }
 }
 
+/* Navbar */
+
+#navbar {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    background: rgba(255,255,255,0.85);
+    z-index: 2;
+    opacity: 0;
+}
+
 /* Header */
 
 #header {
@@ -126,7 +137,7 @@ p {
     position: absolute;
     right: 0;
     height: 2.9vw;
-    width: 112%;
+    width: 115%;
     margin-top: -0.6vw;
 
     animation: grow-width 2s 0s ease;
@@ -134,7 +145,7 @@ p {
 }
 
 .header-btn-bar:hover {
-    width: 125%;
+    width: 130%;
 }
 
 
@@ -146,6 +157,10 @@ p {
     left: 0;
 }
 
+#header a:hover {
+    text-decoration: none;
+    color: black;
+}
 
 #header-about {
     top: 2vw;
@@ -188,7 +203,7 @@ p {
 }
 
 #header-empty-1 {
-    top: 30.2vw;
+    top: 30.5vw;
     cursor: auto;
 }
 
@@ -257,11 +272,9 @@ p {
     background: rgba(255,255,255,0.10);
 }
 
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    /* .header-btn-font {
-        font-size: 0rem;
-    } */
+/* Tablets & smaller */
+@media (max-width: 767px) {
+
 }
 
 
@@ -270,37 +283,41 @@ p {
 /*** All ***/
 
 section {
-    padding-top: 4vw;
+    padding-top: 7vw;
 }
 
 .section-title {
     font-weight: 200;
-    font-size: 4em;
-    padding-left: 5vw;
+    font-size: 4.5em;
+    padding-left: calc(5vw - 15px); /* offset container-fluid padding */
     margin-bottom: 0;
+    animation: fade-in 3s 0s ease-in;
 }
 
 .section-title-bar {
     width: 100vw;
     height: 2.9vw;
-    background: linear-gradient(90deg, #876b63, #9e856f);
     margin-top: -0.4vw;
     margin-bottom: 4vw;
 }
 
 .section-content {
-    padding-left: 5vw;
+    padding-left: calc(5vw - 15px); /* offset container-fluid padding */
     padding-bottom: 4vw;
 }
 
 .section-content p {
-    font-size: 1.5em !important;
+    font-size: 1.5em;
 }
 
 /* About Section */
 
 #about-section {
+    background: white;
+}
 
+#about-section .section-title-bar {
+    background: linear-gradient(90deg, #897470, #9b897c);
 }
 
 #about-section p {
@@ -309,7 +326,122 @@ section {
 
 /* Resumé Section */
 
+#resume-section {
+    color: white;
+    overflow: hidden;
+}
+
+#resume-section-header {
+    position: relative;
+}
+
+#resume-section-image-wrapper {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+#resume-section-image {
+    width: 100%;
+    z-index: -1;
+}
+
+#resume-section .section-title {
+    padding-top: 4vw;
+    display: inline-block;
+    cursor: pointer;;
+}
+
+#resume-section .section-title-bar {
+    background: rgba(255,255,255,0.15);
+    margin-bottom: 3vw;
+}
+
+#resume-btn-down {
+    height: 3.5vw;
+    width: 3.5vw;
+    background: rgba(255,255,255,0.5);
+    border-radius: 100vw;
+    transition: top 1s;
+    animation: fade-in 3s 0s ease-in;
+    margin-left: 3.5vw;
+    display: inline-block;
+    position: relative;
+    top: 1.2vw;
+}
+
+#resume-section-header a {
+    color: white;
+    text-decoration: none;
+}
+
+#resume-btn-down:hover, #resume-section-header:hover #resume-btn-down {
+    top: 2vw;
+    cursor: pointer;
+}
+
+#resume-btn-down-img {
+    background-image: url('../images/resume-btn-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    height: 3vw;
+
+    position: relative;
+    top: 0.3vw;
+    left: 0.28vw;
+}
+
+.resume-group-header {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    text-align: center;
+    vertical-align: bottom;
+    padding-top: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    transition: background 1s;
+}
+
+.resume-group-header:hover {
+    background: #f8f9fa5c
+}
+
+.resume-group h2 {
+    font-weight: 300;
+    font-size: 3em;
+}
+
+.resume-group h3 {
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.resume-group h4 {
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.resume-group span, .resume-group p, .resume-group ul {
+    font-weight: 100;
+    font-size: 1.25em;
+}
+
+.resume-point {
+    margin-bottom: 2vw;
+}
 
 
 /* Portfolio Section */
+
+#portfolio-section {
+    background: white;
+}
+
+#portfolio-section .section-title-bar {
+    background: linear-gradient(20deg, #012727, black);
+    margin-top: 0;
+}
 
