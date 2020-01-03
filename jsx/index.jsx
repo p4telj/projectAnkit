@@ -78,7 +78,7 @@ class Page extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <NavBar />
+                {/* <NavBar /> */}
                 <Header />
                 <About />
                 <Resume />
@@ -112,7 +112,10 @@ class NavBar extends React.Component {
     render() {
         return (
             <div id="navbar">
-                
+                <h1 id="navbar-header">ankit patel</h1>
+                <div id="navbar-content">
+                    <h2>about me</h2>
+                </div>
             </div>
         );
     }
